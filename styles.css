@@ -569,3 +569,35 @@ canvas {
     padding: 18px;
   }
 }
+
+.cypictronic-footer {
+  margin-top: 28px;
+  text-align: center;
+  padding: 18px;
+  color: var(--muted);
+}
+
+.cypictronic-footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.cypictronic-footer a strong {
+  color: var(--cyan);
+}
+
+.cypictronic-footer a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.cypictronic-footer a:hover strong {
+  color: var(--yellow);
+}
