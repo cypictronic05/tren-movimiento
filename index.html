@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulación Física - Tren en Movimiento</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <header class="hero">
+      <div>
+        <p class="tag">Movimiento rectilíneo por tramos</p>
+        <h1>Simulación física de un tren</h1>
+        <p class="description">
+          Visualización sincronizada de posición, velocidad y aceleración durante el recorrido de un tren.
+        </p>
+      </div>
+
+      <div class="status-card">
+        <span>Tiempo total</span>
+        <strong>50 s</strong>
+      </div>
+    </header>
+
+    <section class="scene-card">
+      <div class="scene-header">
+        <div>
+          <h2 id="phaseTitle">Tren en reposo</h2>
+          <p id="phaseDescription">Presiona iniciar para comenzar la simulación.</p>
+        </div>
+
+        <div class="controls">
+          <button id="startBtn">Iniciar</button>
+          <button id="pauseBtn">Pausar</button>
+          <button id="resetBtn">Reiniciar</button>
+        </div>
+      </div>
+
+      <div class="railway-scene">
+        <div class="sky">
+          <div class="sun"></div>
+          <div class="cloud cloud-1"></div>
+          <div class="cloud cloud-2"></div>
+          <div class="cloud cloud-3"></div>
+        </div>
+
+        <div class="mountains"></div>
+
+        <div class="track-area">
+          <div class="background-lines" id="backgroundLines"></div>
+
+          <div class="train" id="train">
+            <div class="train-body">
+              <div class="front-window"></div>
+              <div class="window"></div>
+              <div class="window"></div>
+              <div class="window"></div>
+              <div class="door"></div>
+            </div>
+            <div class="train-front"></div>
+            <div class="wheels">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="rails">
+            <div class="rail rail-top"></div>
+            <div class="rail rail-bottom"></div>
+            <div class="sleepers"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <article class="metric">
+        <span>Tiempo</span>
+        <strong id="timeValue">0.00 s</strong>
+      </article>
+
+      <article class="metric">
+        <span>Velocidad</span>
+        <strong id="velocityValue">0.00 km/h</strong>
+      </article>
+
+      <article class="metric">
+        <span>Aceleración</span>
+        <strong id="accelerationValue">0.00 m/s²</strong>
+      </article>
+
+      <article class="metric">
+        <span>Posición</span>
+        <strong id="positionValue">0.00 m</strong>
+      </article>
+    </section>
+
+    <section class="formula-card">
+      <h2>Ecuaciones usadas</h2>
+
+      <div class="formula-grid">
+        <div class="formula-box">
+          <span>Velocidad</span>
+          <strong>v = v₀ + a · t</strong>
+        </div>
+
+        <div class="formula-box">
+          <span>Posición</span>
+          <strong>x = x₀ + v₀ · t + ½ · a · t²</strong>
+        </div>
+
+        <div class="formula-box">
+          <span>Aceleración</span>
+          <strong>a = (v - v₀) / t</strong>
+        </div>
+
+        <div class="formula-box">
+          <span>Conversión</span>
+          <strong>m/s = km/h ÷ 3.6</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="charts-grid">
+      <article class="chart-card">
+        <div class="chart-title">
+          <h3>Posición - Tiempo</h3>
+          <span>x(t)</span>
+        </div>
+        <canvas id="positionChart"></canvas>
+      </article>
+
+      <article class="chart-card">
+        <div class="chart-title">
+          <h3>Velocidad - Tiempo</h3>
+          <span>v(t)</span>
+        </div>
+        <canvas id="velocityChart"></canvas>
+      </article>
+
+      <article class="chart-card">
+        <div class="chart-title">
+          <h3>Aceleración - Tiempo</h3>
+          <span>a(t)</span>
+        </div>
+        <canvas id="accelerationChart"></canvas>
+      </article>
+    </section>
+
+    <section class="timeline-card">
+      <h2>Tramos del movimiento</h2>
+
+      <div class="timeline">
+        <div class="step active" data-step="0">
+          <strong>0 - 5 s</strong>
+          <span>0 → 80 km/h</span>
+        </div>
+
+        <div class="step" data-step="1">
+          <strong>5 - 10 s</strong>
+          <span>80 km/h</span>
+        </div>
+
+        <div class="step" data-step="2">
+          <strong>10 - 15 s</strong>
+          <span>80 → 120 km/h</span>
+        </div>
+
+        <div class="step" data-step="3">
+          <strong>15 - 20 s</strong>
+          <span>120 → 150 km/h</span>
+        </div>
+
+        <div class="step" data-step="4">
+          <strong>20 - 25 s</strong>
+          <span>150 km/h</span>
+        </div>
+
+        <div class="step" data-step="5">
+          <strong>25 - 30 s</strong>
+          <span>150 km/h</span>
+        </div>
+
+        <div class="step" data-step="6">
+          <strong>30 - 50 s</strong>
+          <span>Frenado</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
